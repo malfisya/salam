@@ -21,6 +21,7 @@ custom_target(
 
 meson.add_install_script(
   meson.project_source_root() / 'scripts/install-cargo-bin.sh',
+  meson.project_source_root(),
   'salam',
   (cargo_mode.length() == 0 ? 'debug' : 'release'),
 )

@@ -1,10 +1,11 @@
 #!/bin/sh
-# Usage: install-cargo-bin.sh <binary-name> <profile>
+# Usage: install-cargo-bin.sh <project-root> <binary-name> <profile>
 
-bin="$1"
-profile="$2"
+proj_root="$1"
+bin="$2"
+profile="$3"
 
-src="target/$profile/$bin"
+src="$proj_root/target/$profile/$bin"
 dest="$DESTDIR$MESON_INSTALL_PREFIX/bin/$bin"
 
 echo "Installing $src -> $dest"
