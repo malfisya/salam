@@ -1,6 +1,8 @@
+<img src="https://github.com/malfisya/salam/blob/main/data/salam.png" alt="drawing" width="200"/>
+
 # Salam
 
-Salam (_sa•lam_ , "greetings" in Bahasa Indonesia) is a simple welcome app for [Solus](https://getsol.us/) Operating System. It is written in [Rust](https://www.rust-lang.org/) with [Slint](https://slint.dev/).
+Salam (_sa•lam_ , "greetings" in Bahasa Indonesia) is a simple welcome app for [Solus](https://getsol.us/) Operating System. It is written in [Rust](https://www.rust-lang.org/) and [Slint](https://slint.dev/).
 
 ## Building
 To build this app, it requires these dependencies:
@@ -21,6 +23,7 @@ Salam take many inspirations from these wonderful projects:
 
 - [parch-welcome](https://github.com/parchlinux/parch-welcome)
 - [slint-rust-template](https://github.com/slint-ui/slint-rust-template/)
+- [open-rs](https://github.com/Byron/open-rs)
 
 ## Temporary Icon
 `salam.png` is provided by <a href="https://www.flaticon.com/free-icons/hello" title="hello icons">Hello icons created by Vitaly Gorbachev - Flaticon</a>.
