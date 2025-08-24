@@ -1,0 +1,136 @@
+// SPDX-FileCopyrightText: Copyright © 2025 Muhammad Alfi Syahrin
+//
+// SPDX-License-Identifier: MPL-2.0
+
+import { StandardButton, VerticalBox, Button, HorizontalBox, Spinner } from "std-widgets.slint";
+
+export component MainWindow inherits Window {
+    title: "Welcome";
+    background: #315afd;
+    padding: 20px;
+    //no-frame: true;
+    icon: @image-url("assets/logo.svg");
+    callback openUrl(string);
+    callback close();
+    callback startInstaller();
+    VerticalBox {
+        padding: 20px;
+        spacing: 5px;
+        Text {
+            text: "Welcome to Solus";
+            font-size: 30pt;
+            font-weight: 800;
+            wrap: word-wrap;
+            horizontal-alignment: center;
+            color: white;
+        }
+
+        Image {
+            horizontal-alignment: center;
+            height: 150px;
+            source: @image-url("assets/logo.svg");
+        }
+
+        Text {
+            text: "A modern Open Source operating system to power your daily needs. Install today, update forever.";
+            font-size: 16pt;
+            font-weight: 300;
+            wrap: word-wrap;
+            horizontal-alignment: center;
+            color: white;
+        }
+
+        HorizontalBox {
+            spacing: 20px;
+            alignment: center;
+            TouchArea {
+                Image {
+                    source: @image-url("assets/web.png");
+                    colorize: white;
+                }
+
+                clicked => {
+                    root.openUrl("https://getsol.us");
+                }
+            }
+
+            TouchArea {
+                Image {
+                    source: @image-url("assets/github.png");
+                    colorize: white;
+                }
+
+                clicked => {
+                    root.openUrl("https://dev.getsol.us");
+                }
+            }
+
+            TouchArea {
+                Image {
+                    source: @image-url("assets/mastodon.png");
+                    colorize: white;
+                }
+
+                clicked => {
+                    root.openUrl("https://floss.social/@getsolus");
+                }
+            }
+
+            TouchArea {
+                Image {
+                    source: @image-url("assets/docs.png");
+                    colorize: white;
+                }
+
+                clicked => {
+                    root.openUrl("https://help.getsol.us");
+                }
+            }
+        }
+
+        HorizontalBox {
+            alignment: center;
+            height: 50px;
+            TouchArea {
+                width: 190px;
+                Rectangle {
+                    clip: true;
+                    width: 190px;
+                    background: white;
+                    border-radius: 5px;
+                    Text {
+                        text: "Install";
+                        color: #315afd;
+                        font-weight: 300;
+                        font-size: 10pt;
+                    }
+                }
+
+                clicked => {
+                    root.startInstaller();
+                }
+            }
+
+            TouchArea {
+                width: 190px;
+                Rectangle {
+                    clip: true;
+                    width: 190px;
+                    background: white;
+                    border-radius: 5px;
+                    Text {
+                        text: "Continue Live Session";
+                        color: #315afd;
+                        font-weight: 300;
+                        font-size: 10pt;
+                    }
+                }
+
+                clicked => {
+                    root.close();
+                    ;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,9 @@
+Desktop Entry]
+Type=Application
+Version=1.0
+Name=Salam
+GenericName=Solus Welcome App
+Icon=salam
+Comment=Simple welcome app for Solus
+Exec=salam
+Terminal=false
