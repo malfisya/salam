@@ -8,17 +8,21 @@ cargo_mode = buildtype.startswith('debug') ? [] : ['--release']
 custom_target(
   'salam',
   build_by_default: true,
-  output: ['salam'],
-  command: [cargo, 'build']
-  + cargo_mode
-  + ['--manifest-path', meson.project_source_root() / 'Cargo.toml'],
+  output: ['dummy-output'],
+  command: [
+    cargo,
+    'build',
+    '--verbose',
+    '--manifest-path', meson.project_source_root() / 'Cargo.toml',
+  ]
+  + cargo_mode,
+  console: true,
+)
 
-  depend_files: [
-    meson.project_source_root() / 'Cargo.toml',
-    meson.project_source_root() / 'ui/welcome.slint',
-  ],
-  install: true,
-  install_dir: get_option('bindir'),
+meson.add_install_script(
+  meson.project_source_root() / 'scripts/install-cargo-bin.sh',
+  'salam',
+  (cargo_mode.length() == 0 ? 'debug' : 'release'),
 )
 
 install_data('data/salam.desktop', install_dir: get_option('datadir') / 'applications')
