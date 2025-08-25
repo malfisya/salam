@@ -32,3 +32,8 @@ install_data(
   'data/salam.png',
   install_dir: get_option('datadir') / 'icons' / 'hicolor' / '512x512' / 'apps',
 )
+
+install_data(
+  'data/io.github.malfisya.salam.metainfo.xml',
+  install_dir: get_option('datadir') / 'metainfo',
+)

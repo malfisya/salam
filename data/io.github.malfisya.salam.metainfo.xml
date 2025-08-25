@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>io.github.malfisya.salam</id>
+
+  <name>Salam</name>
+  <summary> A simple welcome app for Solus Operating System Resources</summary>
+
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>MPL-2.0</project_license>
+
+  <description>
+    <p>
+      Salam (sa•lam , &quot;greetings&quot; in Bahasa Indonesia) is a simple welcome app for Solus Operating System. It is written in Rust and Slint.
+    </p>
+  </description>
+
+  <launchable type="desktop-id">salam.desktop</launchable>
+  <screenshots>
+    <screenshot type="default">
+      <image>https://raw.githubusercontent.com/malfisya/salam/refs/heads/main/data/salam-screenshot.png</image>
+    </screenshot>
+  </screenshots>
+</component>
