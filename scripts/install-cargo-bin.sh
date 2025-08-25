@@ -1,4 +1,8 @@
 #!/bin/sh
+# SPDX-FileCopyrightText: Copyright © 2025 Muhammad Alfi Syahrin
+#
+# SPDX-License-Identifier: MPL-2.0
+
 # Usage: install-cargo-bin.sh <project-root> <binary-name> <profile>
 
 proj_root="$1"
