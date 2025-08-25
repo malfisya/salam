@@ -7,6 +7,7 @@ import { Images } from "../components/images.slint";
 import { Callbacks} from "../components/callbacks.slint";
 
 export component LiveISO {
+
     VerticalBox {
         spacing: 30px;
         padding-right: 30px;
@@ -33,105 +34,108 @@ export component LiveISO {
             horizontal-alignment: center;
         }
 
-        GridBox {
-            padding-top: 30px;
-            padding-bottom: 30px;
-            spacing-vertical: 30px;
+        HorizontalBox {
+            alignment: center;
+            spacing: 30px;
             Rectangle {
-                width: 100px;
-                col: 0;
-                row: 0;
+                background: blue;
+                border-color: red;
             }
 
-            TouchArea {
-                col: 1;
-                row: 0;
+            GridBox {
+                width: 300px;
+                spacing-vertical: 25px;
+                spacing-horizontal: 15px;
                 Image {
+                    col: 0;
+                    row: 0;
                     source: Images.web;
                     colorize: Palette.foreground;
                     height: 32px;
+                    preferred-width: 32px;
                     vertical-alignment: top;
+                    TouchArea {
+                        clicked => {
+                            Callbacks.openUrl("https://getsol.us");
+                        }
+                    }
                 }
 
-                clicked => {
-                    Callbacks.openUrl("https://getsol.us");
+                Text {
+                    text: "Website";
+                    horizontal-alignment: center;
+                    col: 0;
+                    row: 1;
                 }
-            }
 
-            Text {
-                text: "Website";
-                horizontal-alignment: center;
-                col: 1;
-                row: 1;
-            }
-
-            TouchArea {
-                col: 2;
-                row: 0;
                 Image {
+                    col: 1;
+                    row: 0;
                     source: Images.github;
                     colorize: Palette.foreground;
                     height: 32px;
+                    preferred-width: 32px;
+                    TouchArea {
+                        clicked => {
+                            Callbacks.openUrl("https://dev.getsol.us");
+                        }
+                    }
                 }
 
-                clicked => {
-                    Callbacks.openUrl("https://dev.getsol.us");
+                Text {
+                    text: "Github";
+                    horizontal-alignment: center;
+                    col: 1;
+                    row: 1;
                 }
-            }
 
-            Text {
-                text: "Github";
-                horizontal-alignment: center;
-                row: 1;
-                col: 2;
-            }
-
-            TouchArea {
-                col: 3;
-                row: 0;
                 Image {
+                    col: 2;
+                    row: 0;
                     source: Images.mastodon;
                     colorize: Palette.foreground;
                     height: 32px;
+                    preferred-width: 32px;
+                    TouchArea {
+
+                        clicked => {
+                            Callbacks.openUrl("https://floss.social/@getsolus");
+                        }
+                    }
                 }
 
-                clicked => {
-                    Callbacks.openUrl("https://floss.social/@getsolus");
+                Text {
+                    text: "Mastodon";
+                    horizontal-alignment: center;
+                    col: 2;
+                    row: 1;
                 }
-            }
 
-            Text {
-                text: "Mastodon";
-                horizontal-alignment: center;
-                row: 1;
-                col: 3;
-            }
-
-            TouchArea {
-                col: 4;
-                row: 0;
                 Image {
+                    col: 3;
+                    row: 0;
                     source: Images.docs;
                     colorize: Palette.foreground;
                     height: 32px;
+                    preferred-width: 32px;
+                    TouchArea {
+                        clicked => {
+                            Callbacks.openUrl("https://help.getsol.us");
+                        }
+                    }
                 }
 
-                clicked => {
-                    Callbacks.openUrl("https://help.getsol.us");
+                Text {
+                    text: "Help Guide";
+                    horizontal-alignment: center;
+                    col: 3;
+                    row: 1;
                 }
-            }
-
-            Text {
-                text: "Help Guide";
-                horizontal-alignment: center;
-                row: 1;
-                col: 4;
             }
 
             Rectangle {
-                width: 100px;
-                col: 5;
-                row: 0;
+                background: blue;
+                border-color: red;
             }
         }
 
