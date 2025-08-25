@@ -7,3 +7,4 @@ Icon=salam
 Comment=Simple welcome app for Solus
 Exec=salam
 Terminal=false
+Categories=Utility;
