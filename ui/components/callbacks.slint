@@ -2,6 +2,8 @@
 //
 // SPDX-License-Identifier: MPL-2.0
 
-fn main() {
-    slint_build::compile("ui/main.slint").expect("Salam build failed");
+export global Callbacks {
+    callback openUrl(string);
+    callback close();
+    callback startInstaller();
 }

@@ -3,17 +3,10 @@
 // SPDX-License-Identifier: MPL-2.0
 
 import { StandardButton, VerticalBox, Button, HorizontalBox, Spinner, StyleMetrics, Palette, GridBox } from "std-widgets.slint";
-import { Images } from "images.slint";
+import { Images } from "../components/images.slint";
+import { Callbacks} from "../components/callbacks.slint";
 
-export component MainWindow inherits Window {
-    title: "Welcome";
-    background: Palette.background;
-    //padding: 20px;
-    //no-frame: true;
-    icon: Images.logo;
-    callback openUrl(string);
-    callback close();
-    callback startInstaller();
+export component LiveISO {
     VerticalBox {
         spacing: 30px;
         padding-right: 30px;
@@ -61,7 +54,7 @@ export component MainWindow inherits Window {
                 }
 
                 clicked => {
-                    root.openUrl("https://getsol.us");
+                    Callbacks.openUrl("https://getsol.us");
                 }
             }
 
@@ -82,7 +75,7 @@ export component MainWindow inherits Window {
                 }
 
                 clicked => {
-                    root.openUrl("https://dev.getsol.us");
+                    Callbacks.openUrl("https://dev.getsol.us");
                 }
             }
 
@@ -103,7 +96,7 @@ export component MainWindow inherits Window {
                 }
 
                 clicked => {
-                    root.openUrl("https://floss.social/@getsolus");
+                    Callbacks.openUrl("https://floss.social/@getsolus");
                 }
             }
 
@@ -124,7 +117,7 @@ export component MainWindow inherits Window {
                 }
 
                 clicked => {
-                    root.openUrl("https://help.getsol.us");
+                    Callbacks.openUrl("https://help.getsol.us");
                 }
             }
 
@@ -151,7 +144,7 @@ export component MainWindow inherits Window {
                 icon: Images.install;
                 colorize-icon: true;
                 clicked => {
-                    root.startInstaller();
+                    Callbacks.startInstaller();
                 }
             }
 
@@ -160,7 +153,7 @@ export component MainWindow inherits Window {
                 icon: Images.play;
                 colorize-icon: true;
                 clicked => {
-                    root.close();
+                    Callbacks.close();
                 }
             }
         }

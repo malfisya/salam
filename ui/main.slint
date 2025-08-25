@@ -1,0 +1,28 @@
+// SPDX-FileCopyrightText: Copyright © 2025 Muhammad Alfi Syahrin
+//
+// SPDX-License-Identifier: MPL-2.0
+
+import { StandardButton, VerticalBox, Button, HorizontalBox, Spinner, StyleMetrics, Palette, GridBox } from "std-widgets.slint";
+import { Images } from "components/images.slint";
+import { LiveISO } from "pages/liveiso.slint";
+import { Callbacks } from "components/callbacks.slint";
+import { SideBar} from "components/sidebar.slint";
+
+export { Callbacks }
+
+export component MainWindow inherits Window {
+    title: "Welcome";
+    background: Palette.background;
+    icon: Images.logo;
+    //padding: 20px;
+    //no-frame: true;
+    //min-width: 800px;
+    //min-height: 500px;
+    HorizontalBox {
+        spacing: 0px;
+        // It is not ready, disabled
+        //SideBar { }
+
+        LiveISO { }
+    }
+}
