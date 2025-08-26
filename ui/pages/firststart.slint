@@ -1,0 +1,177 @@
+// SPDX-FileCopyrightText: Copyright © 2025 Muhammad Alfi Syahrin
+//
+// SPDX-License-Identifier: MPL-2.0
+
+import { StandardButton, VerticalBox, Button, HorizontalBox, Spinner, StyleMetrics, Palette, GridBox, CheckBox } from "std-widgets.slint";
+import { Images } from "../components/images.slint";
+import { Callbacks} from "../components/callbacks.slint";
+
+export component FirstStart {
+    VerticalBox {
+        spacing: 10px;
+        padding: 10px;
+
+        Text {
+            text: "First Time Setup";
+            font-weight: 800;
+            font-size: 16px;
+            horizontal-alignment: center;
+        }
+
+        Text {
+            text: "To optimize your experience with Solus,here are somethings you can do before using your computer.";
+            wrap: word-wrap;
+            font-size: 14px;
+            horizontal-alignment: center;
+        }
+
+        Rectangle {
+            background: Palette.alternate-background;
+            border-radius: 10px;
+
+            GridBox {
+                spacing-horizontal: 10px;
+                spacing-vertical: 10px;
+                Text {
+                    colspan: 2;
+                    row: 0;
+                    text: "Update The System";
+                    font-weight: 800;
+                    font-size: 16px;
+                }
+
+                Text {
+                    col: 0;
+                    row: 1;
+                    font-size: 14px;
+                    wrap: word-wrap;
+                    text: "Before installing any application from the repository, it is strongly recomended to update your system first.";
+                    horizontal-alignment: left;
+                }
+
+                Button {
+                    col: 1;
+                    row: 1;
+                    height: 64px;
+                    width: 200px;
+                    text: "Update System";
+                    icon: Images.update;
+                    colorize-icon: true;
+                }
+            }
+        }
+
+        Rectangle {
+            background: Palette.alternate-background;
+            border-radius: 10px;
+
+            GridBox {
+                spacing-horizontal: 10px;
+                spacing-vertical: 10px;
+                Text {
+                    col: 0;
+                    row: 0;
+                    text: "Install Additional Driver";
+                    font-weight: 800;
+                    font-size: 16px;
+                }
+
+                Text {
+                    col: 0;
+                    row: 1;
+                    font-size: 14px;
+                    wrap: word-wrap;
+                    text: "If your hardware needs additional driver, install it with our driver utility.";
+                    horizontal-alignment: left;
+                }
+
+                Button {
+                    col: 1;
+                    rowspan: 3;
+                    text: "Launch Driver Utility";
+                    height: 64px;
+                    width: 200px;
+                    icon: Images.driver;
+                    colorize-icon: true;
+                }
+            }
+        }
+
+        Rectangle {
+            background: Palette.alternate-background;
+            border-radius: 10px;
+
+            GridBox {
+                spacing-horizontal: 10px;
+                spacing-vertical: 10px;
+
+                Text {
+                    colspan: 3;
+                    row: 0;
+                    text: "Join The Community";
+                    font-weight: 800;
+                    font-size: 16px;
+                }
+
+                Text {
+                    colspan: 3;
+                    row: 1;
+                    wrap: word-wrap;
+                    font-size: 14px;
+                    text: "Still have some questions? Join our forum! We have good community there eager to help. Or you can chat with the staff and the community at large on Matrix. Also folow our Mastodon account to get bite-sized update from us.";
+                    horizontal-alignment: left;
+                }
+
+                Image {
+                    col: 0;
+                    row: 2;
+                    height: 32px;
+                    source: Images.forum;
+                //colorize: Palette.foreground;
+            }
+
+                Text {
+                    col: 0;
+                    row: 3;
+                    text: "Forum";
+                    horizontal-alignment: center;
+                }
+
+                Image {
+                    col: 1;
+                    row: 2;
+                    height: 32px;
+                    source: Images.matrix;
+                    colorize: Palette.foreground;
+                }
+
+                Text {
+                    col: 1;
+                    row: 3;
+                    text: "Matrix";
+                    horizontal-alignment: center;
+                }
+
+                Image {
+                    col: 2;
+                    row: 2;
+                    height: 32px;
+                    source: Images.mastodon;
+                    colorize: Palette.foreground;
+                }
+
+                Text {
+                    col: 2;
+                    row: 3;
+                    text: "Mastodon";
+                    horizontal-alignment: center;
+                }
+            }
+        }
+
+        CheckBox {
+            text: "Launch on Startup";
+            checked: true;
+        }
+    }
+}
