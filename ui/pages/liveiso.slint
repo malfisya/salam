@@ -7,45 +7,50 @@ import { Images } from "../components/images.slint";
 import { Callbacks} from "../components/callbacks.slint";
 
 export component LiveISO {
-
     VerticalBox {
-        spacing: 30px;
-        padding-right: 30px;
-        padding-left: 30px;
-        Text {
-            text: "Welcome to Solus";
-            font-size: 30pt;
-            font-weight: 800;
-            wrap: word-wrap;
-            horizontal-alignment: center;
-        }
+        spacing: 10px;
+        padding: 10px;
+        Rectangle {
+            background: Palette.alternate-background;
+            border-radius: 10px;
+            padding: 10px;
+            VerticalBox {
 
-        Image {
-            horizontal-alignment: center;
-            height: 150px;
-            source: Images.logo;
-        }
+                Text {
+                    text: "Welcome to Solus";
+                    font-size: 30pt;
+                    font-weight: 800;
+                    wrap: word-wrap;
+                    horizontal-alignment: center;
+                }
 
-        Text {
-            text: "A modern Open Source operating system to power your daily needs. Install today, update forever.";
-            font-size: 16pt;
-            font-weight: 300;
-            wrap: word-wrap;
-            horizontal-alignment: center;
+                Image {
+                    horizontal-alignment: center;
+                    height: 150px;
+                    source: Images.logo;
+                }
+
+                Text {
+                    text: "A modern Open Source operating system to power your daily needs. Install today, update forever.";
+                    font-size: 16pt;
+                    font-weight: 300;
+                    wrap: word-wrap;
+                    horizontal-alignment: center;
+                }
+            }
         }
 
         HorizontalBox {
             alignment: center;
-            spacing: 30px;
-            Rectangle {
-                background: blue;
-                border-color: red;
-            }
+            spacing: 10px;
+            padding-top: 20px;
+            padding: 10px;
+            Rectangle { }
 
             GridBox {
-                width: 300px;
-                spacing-vertical: 25px;
-                spacing-horizontal: 15px;
+                width: 400px;
+                spacing-vertical: 10px;
+                spacing-horizontal: 10px;
                 Image {
                     col: 0;
                     row: 0;
@@ -71,19 +76,20 @@ export component LiveISO {
                 Image {
                     col: 1;
                     row: 0;
-                    source: Images.github;
+                    source: Images.forum;
                     colorize: Palette.foreground;
                     height: 32px;
                     preferred-width: 32px;
+                    vertical-alignment: top;
                     TouchArea {
                         clicked => {
-                            Callbacks.openUrl("https://dev.getsol.us");
+                            Callbacks.openUrl("https://discuss.getsol.us");
                         }
                     }
                 }
 
                 Text {
-                    text: "Github";
+                    text: "Forum";
                     horizontal-alignment: center;
                     col: 1;
                     row: 1;
@@ -91,6 +97,49 @@ export component LiveISO {
 
                 Image {
                     col: 2;
+                    row: 0;
+                    source: Images.docs;
+                    colorize: Palette.foreground;
+                    height: 32px;
+                    preferred-width: 32px;
+                    vertical-alignment: top;
+                    TouchArea {
+                        clicked => {
+                            Callbacks.openUrl("https://help.getsol.us");
+                        }
+                    }
+                }
+
+                Text {
+                    text: "Help Center";
+                    horizontal-alignment: center;
+                    col: 2;
+                    row: 1;
+                }
+
+                Image {
+                    col: 3;
+                    row: 0;
+                    source: Images.github;
+                    colorize: Palette.foreground;
+                    height: 32px;
+                    preferred-width: 32px;
+                    TouchArea {
+                        clicked => {
+                            Callbacks.openUrl("https://github.com/getsolus/");
+                        }
+                    }
+                }
+
+                Text {
+                    text: "Github";
+                    horizontal-alignment: center;
+                    col: 3;
+                    row: 1;
+                }
+
+                Image {
+                    col: 4;
                     row: 0;
                     source: Images.mastodon;
                     colorize: Palette.foreground;
@@ -107,45 +156,44 @@ export component LiveISO {
                 Text {
                     text: "Mastodon";
                     horizontal-alignment: center;
-                    col: 2;
+                    col: 4;
                     row: 1;
                 }
 
                 Image {
-                    col: 3;
+                    col: 5;
                     row: 0;
-                    source: Images.docs;
+                    source: Images.matrix;
                     colorize: Palette.foreground;
                     height: 32px;
                     preferred-width: 32px;
                     TouchArea {
                         clicked => {
-                            Callbacks.openUrl("https://help.getsol.us");
+                            Callbacks.openUrl("https://matrix.to/#/#solus:matrix.org");
                         }
                     }
                 }
 
                 Text {
-                    text: "Help Guide";
+                    text: "Matrix";
                     horizontal-alignment: center;
-                    col: 3;
+                    col: 5;
                     row: 1;
                 }
             }
 
-            Rectangle {
-                background: blue;
-                border-color: red;
-            }
+            Rectangle { }
         }
 
         HorizontalBox {
             alignment: center;
-            height: 64px;
-            spacing: 20px;
+
+            spacing: 10px;
             Button {
                 text: "Install Solus";
                 icon: Images.install;
+                height: 64px;
+                width: 200px;
                 colorize-icon: true;
                 clicked => {
                     Callbacks.startInstaller();
@@ -155,6 +203,8 @@ export component LiveISO {
             Button {
                 text: "Continue Live Session";
                 icon: Images.play;
+                height: 64px;
+                width: 200px;
                 colorize-icon: true;
                 clicked => {
                     Callbacks.close();
