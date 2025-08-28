@@ -46,7 +46,7 @@ fn main() {
 
         let result = match desktop_env.as_str() {
             "gnome" => Command::new("gnome-software").arg("--mode=updates").spawn(),
-            "kde" | "xfce" | "budgie" => {
+            "KDE" | "xfce" | "budgie-desktop" => {
                 Command::new("plasma-discover").arg("--mode=update").spawn()
             }
             _ => Err(std::io::Error::new(
@@ -68,7 +68,7 @@ fn main() {
 
         let result = match desktop_env.as_str() {
             "gnome" => Command::new("gnome-software").arg("--details=nvidia-glx-driver-current").spawn(),
-            "kde" | "xfce" | "budgie" => Command::new("plasma-discover")
+            "KDE" | "xfce" | "budgie-desktop" => Command::new("plasma-discover")
                 .args(["--category", "Hardware Drivers"])
                 .spawn(),
             _ => Err(std::io::Error::new(
