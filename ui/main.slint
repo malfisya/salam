@@ -8,24 +8,19 @@ import { LiveISO } from "pages/liveiso.slint";
 import { Callbacks } from "components/callbacks.slint";
 import { SideBar} from "components/sidebar.slint";
 import { FirstStart } from "pages/firststart.slint";
+import { Donation } from "pages/donation.slint";
 
 export { Callbacks }
 
 export component MainWindow inherits Window {
-    title: "Welcome";
+    title: root.current_page == 1 ? "Welcome" : "First Setup";
     background: Palette.background;
     icon: Images.logo;
-    //padding: 20px;
-    //no-frame: true;
-    //min-width: 800px;
-    //min-height: 500px;
+
+    in property <int> current_page: 1;
     HorizontalBox {
-        spacing: 0px;
-
-        // It is not ready, disabled
-        //SideBar { }
-
-        LiveISO { }
-       //FirstStart { }
+        if root.current_page == 1: LiveISO { }
+        if root.current_page == 2: FirstStart { }
+        if root.current_page == 3: Donation { }
     }
 }
