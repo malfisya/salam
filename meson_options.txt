@@ -1,0 +1,5 @@
+option('slint_style',
+       type: 'combo',
+       choices: ['native', 'fluent', 'material', 'cupertino'],
+       value: 'native',
+       description: 'Slint style to use at compile time')

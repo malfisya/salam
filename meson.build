@@ -4,6 +4,7 @@ cargo = find_program('cargo')
 
 buildtype = get_option('buildtype')
 cargo_mode = buildtype.startswith('debug') ? [] : ['--release']
+slint_style = get_option('slint_style')
 
 custom_target(
   'salam',
@@ -16,6 +17,9 @@ custom_target(
     '--manifest-path', meson.project_source_root() / 'Cargo.toml',
   ]
   + cargo_mode,
+  env: {
+    'SLINT_STYLE': slint_style,
+  },
   console: true,
 )
 
