@@ -35,6 +35,8 @@ Salam take many inspirations from these wonderful projects:
 - `update.png` is provided by <a href="https://www.flaticon.com/free-icons/refresh" title="refresh icons">Refresh icons created by Freepik - Flaticon</a>
 - `driver.png` is provided by <a href="https://www.flaticon.com/free-icons/maintenance" title="maintenance icons">Maintenance icons created by meaicon - Flaticon</a>
 - `forum.png` is provided by <a href="https://www.flaticon.com/free-icons/forum" title="forum icons">Forum icons created by Pixel perfect - Flaticon</a>
+- `donate.png`is provided by <a href="https://www.flaticon.com/free-icons/heart" title="heart icons">Heart icons created by Freepik - Flaticon</a>
+- `people.png`is provided by <a href="https://www.flaticon.com/free-icons/people" title="people icons">People icons created by Vitaly Gorbachev - Flaticon</a>
 
 ## License
 This project is licensed under Mozilla Public License Version 2.0.

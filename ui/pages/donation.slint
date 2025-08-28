@@ -1,0 +1,70 @@
+import { StandardButton, VerticalBox, Button, HorizontalBox, Spinner, StyleMetrics, Palette, GridBox, CheckBox } from "std-widgets.slint";
+import { Images } from "../components/images.slint";
+import { Callbacks} from "../components/callbacks.slint";
+
+export component Donation {
+    VerticalBox {
+        Rectangle {
+            background: Palette.alternate-background;
+            border-radius: 10px;
+            padding: 10px;
+            VerticalBox {
+                Text {
+                    text: "Support Us";
+                    font-size: 30pt;
+                    font-weight: 800;
+                    wrap: word-wrap;
+                    horizontal-alignment: center;
+                }
+
+                HorizontalBox {
+                    Image {
+                        source: Images.logo;
+                        horizontal-alignment: center;
+                        height: 150px;
+                    }
+
+                    Text {
+                        vertical-alignment: center;
+                        text: "X";
+                        font-weight: 800;
+                        font-size: 25pt;
+                    }
+
+                    Image {
+                        source: Images.community;
+                        horizontal-alignment: center;
+                        height: 150px;
+                    }
+                }
+
+                Text {
+                    text: "We are funded through your donations. Every bit you can spare will help us keep going.";
+                    min-width: 400px;
+                    font-size: 18pt;
+                    font-weight: 300;
+                    wrap: word-wrap;
+                    horizontal-alignment: center;
+                }
+            }
+        }
+
+        HorizontalBox {
+            alignment: center;
+            Button {
+                text: "Go to OpenCollective";
+                height: 64px;
+                width: 200px;
+                icon: Images.donate;
+                colorize-icon: true;
+                clicked => {
+                    Callbacks.openUrl("https://opencollective.com/getsolus");
+                }
+            }
+        }
+
+        CheckBox {
+            text: "Never Show Again";
+        }
+    }
+}
