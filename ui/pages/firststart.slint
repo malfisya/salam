@@ -224,9 +224,17 @@ export component FirstStart {
             }
         }
 
-        CheckBox {
-            text: "Launch on Startup";
-            checked: true;
+        HorizontalBox {
+            CheckBox {
+                text: "Launch on Startup";
+                checked: true;
+            }
+
+            StandardButton {
+                kind: close;
+                height: 48px;
+                width: 200px;
+            }
         }
     }
 }
