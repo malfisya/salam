@@ -44,11 +44,36 @@ fn main() {
     app.global::<Callbacks>().on_launchUpdater(|| {
         let desktop_env = env::var("XDG_SESSION_DESKTOP").unwrap_or_default();
 
+        // helper closure: try primary, if it fails try fallback
+        let try_launch = |mut primary: Command, mut fallback: Command| {
+            primary.spawn().or_else(|_| fallback.spawn())
+        };
+
         let result = match desktop_env.as_str() {
-            "gnome" => Command::new("gnome-software").arg("--mode=updates").spawn(),
-            "KDE" | "xfce" | "budgie-desktop" => {
-                Command::new("plasma-discover").arg("--mode=update").spawn()
-            }
+            "gnome" => try_launch(
+                {
+                    let mut cmd = Command::new("gnome-software");
+                    cmd.arg("--mode=updates");
+                    cmd
+                },
+                {
+                    let mut cmd = Command::new("plasma-discover");
+                    cmd.arg("--mode=update");
+                    cmd
+                },
+            ),
+            "KDE" | "xfce" | "budgie-desktop" => try_launch(
+                {
+                    let mut cmd = Command::new("plasma-discover");
+                    cmd.arg("--mode=update");
+                    cmd
+                },
+                {
+                    let mut cmd = Command::new("gnome-software");
+                    cmd.arg("--mode=updates");
+                    cmd
+                },
+            ),
             _ => Err(std::io::Error::new(
                 std::io::ErrorKind::Other,
                 "Unsupported desktop environment",
@@ -57,8 +82,8 @@ fn main() {
 
         if let Err(err) = result {
             eprintln!(
-                "Failed to launch software center for {desktop_env:?}: {err}\n\
-                  Please update manually via terminal, e.g.:\n  sudo eopkg update"
+                "Failed to launch a graphical updater for {desktop_env:?}: {err}\n\
+                Please update manually via terminal, e.g.:\n  sudo eopkg update"
             );
         }
     });
@@ -66,11 +91,35 @@ fn main() {
     app.global::<Callbacks>().on_installDriver(|| {
         let desktop_env = env::var("XDG_SESSION_DESKTOP").unwrap_or_default();
 
+        let try_launch = |mut primary: Command, mut fallback: Command| {
+            primary.spawn().or_else(|_| fallback.spawn())
+        };
+
         let result = match desktop_env.as_str() {
-            "gnome" => Command::new("gnome-software").arg("--details=nvidia-glx-driver-current").spawn(),
-            "KDE" | "xfce" | "budgie-desktop" => Command::new("plasma-discover")
-                .args(["--category", "Hardware Drivers"])
-                .spawn(),
+            "gnome" => try_launch(
+                {
+                    let mut cmd = Command::new("gnome-software");
+                    cmd.arg("--details=nvidia-glx-driver-current");
+                    cmd
+                },
+                {
+                    let mut cmd = Command::new("plasma-discover");
+                    cmd.args(["--category", "Hardware Drivers"]);
+                    cmd
+                },
+            ),
+            "KDE" | "xfce" | "budgie-desktop" => try_launch(
+                {
+                    let mut cmd = Command::new("plasma-discover");
+                    cmd.args(["--category", "Hardware Drivers"]);
+                    cmd
+                },
+                {
+                    let mut cmd = Command::new("gnome-software");
+                    cmd.arg("--updates");
+                    cmd
+                },
+            ),
             _ => Err(std::io::Error::new(
                 std::io::ErrorKind::Other,
                 "Unsupported desktop environment",
@@ -79,8 +128,8 @@ fn main() {
 
         if let Err(err) = result {
             eprintln!(
-                "Failed to launch software center for {desktop_env:?}: {err}\n\
-                  Please install driver via terminal, e.g.:\n  sudo eopkg it nvidia-glx-driver-current"
+                "Failed to launch a graphical updater for {desktop_env:?}: {err}\n\
+                Please update manually via terminal, e.g.:\n  sudo eopkg install nvidia-glx-driver-current"
             );
         }
     });
