@@ -29,7 +29,6 @@ Salam take many inspirations from these wonderful projects:
 - `salam.png` is provided by <a href="https://www.flaticon.com/free-icons/hello" title="hello icons">Hello icons created by Vitaly Gorbachev - Flaticon</a>.
 - `continue.png` is provided by <a href="https://www.flaticon.com/free-icons/play-button" title="play button icons">Play button icons created by Pixel perfect - Flaticon</a>
 - `install.png` is provided by <a href="https://www.flaticon.com/free-icons/download" title="download icons">Download icons created by Pixel perfect - Flaticon</a>
-- `github.png` is provided by <a href="https://www.flaticon.com/free-icons/github" title="github icons">Github icons created by Pixel perfect - Flaticon</a>
 - `web.png` is provided by <a href="https://www.flaticon.com/free-icons/www" title="www icons">Www icons created by Pixel perfect - Flaticon</a>
 - `docs.png` is provided by <a href="https://www.flaticon.com/free-icons/user-guide" title="user guide icons">User guide icons created by Prosymbols Premium - Flaticon</a>
 - `update.png` is provided by <a href="https://www.flaticon.com/free-icons/refresh" title="refresh icons">Refresh icons created by Freepik - Flaticon</a>
