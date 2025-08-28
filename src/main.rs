@@ -44,7 +44,6 @@ fn main() {
     app.global::<Callbacks>().on_launchUpdater(|| {
         let desktop_env = env::var("XDG_SESSION_DESKTOP").unwrap_or_default();
 
-        // helper closure: try primary, if it fails try fallback
         let try_launch = |mut primary: Command, mut fallback: Command| {
             primary.spawn().or_else(|_| fallback.spawn())
         };
@@ -82,7 +81,7 @@ fn main() {
 
         if let Err(err) = result {
             eprintln!(
-                "Failed to launch a graphical updater for {desktop_env:?}: {err}\n\
+                "Failed to launch a software center for {desktop_env:?}: {err}\n\
                 Please update manually via terminal, e.g.:\n  sudo eopkg update"
             );
         }
@@ -116,7 +115,7 @@ fn main() {
                 },
                 {
                     let mut cmd = Command::new("gnome-software");
-                    cmd.arg("--updates");
+                    cmd.arg("--details=nvidia-glx-driver-current");
                     cmd
                 },
             ),
@@ -128,8 +127,8 @@ fn main() {
 
         if let Err(err) = result {
             eprintln!(
-                "Failed to launch a graphical updater for {desktop_env:?}: {err}\n\
-                Please update manually via terminal, e.g.:\n  sudo eopkg install nvidia-glx-driver-current"
+                "Failed to launch a software center for {desktop_env:?}: {err}\n\
+                Please install driver manually via terminal, e.g.:\n  sudo eopkg install nvidia-glx-driver-current"
             );
         }
     });
