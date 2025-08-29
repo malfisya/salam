@@ -1,6 +1,7 @@
 // SPDX-FileCopyrightText: Copyright © 2025 Muhammad Alfi Syahrin
 //
 // SPDX-License-Identifier: MPL-2.0
+
 use std::env;
 use std::process::Command;
 
