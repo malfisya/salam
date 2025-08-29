@@ -1,7 +1,6 @@
 // SPDX-FileCopyrightText: Copyright © 2025 Muhammad Alfi Syahrin
 //
 // SPDX-License-Identifier: MPL-2.0
-
 use std::env;
 use std::process::Command;
 
@@ -23,6 +22,10 @@ fn main() {
     };
 
     let app = MainWindow::new().unwrap();
+
+    if let Err(err) = slint::set_xdg_app_id("salam") {
+        eprintln!("Failed to set XDG app id: {err}");
+    }
     app.set_current_page(start_page);
 
     app.global::<Callbacks>().on_close(move || {
