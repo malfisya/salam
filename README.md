@@ -1,3 +1,6 @@
+> [!CAUTION]
+> This repository is archived. Salam development is continued at [Codeberg](https://codeberg.org/malfisya/salam)
+
 <img src="https://github.com/malfisya/salam/blob/main/data/salam.png" alt="drawing" width="200"/>
 
 # Salam
